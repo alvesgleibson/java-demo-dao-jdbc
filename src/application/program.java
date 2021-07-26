@@ -1,14 +1,25 @@
 package application;
 
-import model.entities.Department;
+import java.util.Date;
 
-public class program {
+import model.entities.Department;
+import model.entities.Seller;
+
+
+
+public class Program {
 	
 	public static void main(String[] args) {
 		
+		
 		Department obj = new Department(1, "Tecnology");
 		
-		System.out.println(obj);
+		Seller seller = new Seller(22, "alvesgleibson@gmail.com","alvesgleibson@gmail.com", new Date(),5500.0, obj);
+		
+		System.out.println(obj+"\n");
+		System.out.println(seller);
+		
+		
 		
 		
 		
