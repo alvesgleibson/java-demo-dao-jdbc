@@ -56,7 +56,14 @@ public class Program {
 		
 		
 		
-		
+		// End Insert
+
+				System.out.println("\n\n================ Test 5: Update Seller ================\n");
+				
+				sellerSoftwareEngineer = sellerDao.findById(4);
+				sellerSoftwareEngineer.setName("Pedro Antonio");
+				sellerDao.update(sellerSoftwareEngineer);
+				System.out.println("Update completed!");
 		
 		
 		
