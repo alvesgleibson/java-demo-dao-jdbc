@@ -10,14 +10,14 @@ public class program2 {
 		
 		DepartmentDao departmentDaoInterface = DaoFactory.createDepartmentDao();
 		
-		Department dep = departmentDaoInterface.findById(3);
+		
+		//departmentDaoInterface.deletebyId(5);
+		departmentDaoInterface.insert(new Department(10, "Finance"));
+		
+		
+		Department dep = departmentDaoInterface.findById(10);
 		
 		System.out.println(dep);
-		
-		departmentDaoInterface.deletebyId(5);
-		
-		
-		
 		
 
 	}
