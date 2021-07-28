@@ -32,6 +32,17 @@ public class Program {
 
 		}
 
+		// End find seller by Department
+
+		System.out.println("\n\n================ Test 3: Seller FindByAll ================\n");
+		list = sellerDao.findAll();
+
+		for (Seller obj : list) {
+
+			System.out.println(obj);
+
+		}
+
 	}
 
 }
