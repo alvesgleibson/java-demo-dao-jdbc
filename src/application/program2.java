@@ -12,14 +12,19 @@ public class program2 {
 		
 		
 		//departmentDaoInterface.deletebyId(5);
-		departmentDaoInterface.insert(new Department(10, "Finance"));
+		//departmentDaoInterface.insert(new Department(10, "Finance"));
 		
 		
-		Department dep = departmentDaoInterface.findById(10);
+		//Department dep = departmentDaoInterface.findById(10);
 		
-		System.out.println(dep);
+		//System.out.println(dep);
 		
+		Department depUp = departmentDaoInterface.findById(100);
+		depUp.setName("TI");
+		departmentDaoInterface.update(depUp);
 
+		
+		System.out.println(depUp);
 	}
 
 }

@@ -33,7 +33,7 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
-		}finally {
+		} finally {
 			DB.closeStatement(st);
 		}
 
@@ -41,7 +41,26 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
 	@Override
 	public void update(Department department) {
-		// TODO Auto-generated method stub
+		PreparedStatement st = null;
+
+		try {
+
+			st = conn.prepareStatement("UPDATE Department SET  Name = ? WHERE Department.Id = ?");
+
+			st.setString(1, department.getName());
+			st.setInt(2, department.getId());
+
+			int rowsAffected = st.executeUpdate();
+
+			if (rowsAffected == 0) {
+				throw new DbException("Not Updated");
+			}
+
+		} catch (SQLException e) {
+			throw new DbException(e.getMessage());
+		} finally {
+			DB.closeStatement(st);
+		}
 
 	}
 
