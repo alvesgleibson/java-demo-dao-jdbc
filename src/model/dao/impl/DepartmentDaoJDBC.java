@@ -21,7 +21,6 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
 	@Override
 	public void insert(Department department) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -33,6 +32,28 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
 	@Override
 	public void deletebyId(Integer id) {
+
+		PreparedStatement st = null;
+
+		try {
+
+			st = conn.prepareStatement("DELETE FROM Department WHERE Department.Id = ?");
+			st.setInt(1, id);
+
+			int rowsAffected = st.executeUpdate();
+
+			if (rowsAffected == 0) {
+				throw new DbException("Could not delete seller from position because there is no seller with this id");
+			}
+
+		} catch (SQLException e) {
+
+			throw new DbException(e.getMessage());
+
+		} finally {
+
+			DB.closeStatement(st);
+		}
 
 	}
 
